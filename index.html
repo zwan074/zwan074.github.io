@@ -17,13 +17,20 @@
     <th>Speaker</th>
     <th>Method</th>
     <th>Text to Speech</th>
-    <th>Mean </th>
+    <th>Mean Opinion Score (MOS)</th>
   </tr>
   <tr>
     <td><audio controls="controls"><source type="audio/wav" src="misc/references/121_121726_000000_000000.wav"></source></audio></td>
     <td>121726</td>
     <td>with no adaptor (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_speakers/121_121726_000000_000000.wav"></source></audio></td>
+    <td>
+     <select id="fruitSelect">
+           <option value="banana">banana</option>
+           <option value="strawberry">strawberry</option>
+           <option value="apple">apple</option>
+      </select>
+   </td>
   </tr>
   <tr>
     <td></td>
@@ -49,13 +56,7 @@
     <td>with mel-style adaptor and rf version 2 (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_recitedflow_v1/121_121726_000000_000000.wav"></source></audio></td>
   </tr>
-  <tr>
-  <select id="fruitSelect">
-        <option value="banana">banana</option>
-        <option value="strawberry">strawberry</option>
-        <option value="apple">apple</option>
-   </select>
-   </tr>
+  
 </table>
 
 <hr style="opacity: 0.25">

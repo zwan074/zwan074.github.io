@@ -26,11 +26,11 @@
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_speakers/121_121726_000000_000000.wav"></source></audio></td>
     <td>
      <select id="MOS select">
-           <option value="1">Bad</option>
-           <option value="2">Poor</option>
-           <option value="3">Fair</option>
-           <option value="4">Good</option>
-           <option value="5">Excellent</option>
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
       </select>
    </td>
   </tr>
@@ -41,11 +41,11 @@
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor/121_121726_000000_000000.wav"></source></audio></td>
     <td>
      <select id="MOS select">
-           <option value="1">Bad</option>
-           <option value="2">Poor</option>
-           <option value="3">Fair</option>
-           <option value="4">Good</option>
-           <option value="5">Excellent</option>
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
       </select>
    </td>
   </tr>
@@ -56,11 +56,11 @@
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_trainClean360/121_121726_000000_000000.wav"></source></audio></td>
     <td>
      <select id="MOS select">
-           <option value="1">Bad</option>
-           <option value="2">Poor</option>
-           <option value="3">Fair</option>
-           <option value="4">Good</option>
-           <option value="5">Excellent</option>
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
       </select>
    </td> 
 </tr>
@@ -71,11 +71,11 @@
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_recitedflow_v1/121_121726_000000_000000.wav"></source></audio></td>
     <td>
      <select id="MOS select">
-           <option value="1">Bad</option>
-           <option value="2">Poor</option>
-           <option value="3">Fair</option>
-           <option value="4">Good</option>
-           <option value="5">Excellent</option>
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
       </select>
    </td>  
 </tr>
@@ -86,11 +86,11 @@
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_recitedflow_v1/121_121726_000000_000000.wav"></source></audio></td>
     <td>
      <select id="MOS select">
-           <option value="1">Bad</option>
-           <option value="2">Poor</option>
-           <option value="3">Fair</option>
-           <option value="4">Good</option>
-           <option value="5">Excellent</option>
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
       </select>
    </td>  
 </tr>
@@ -105,36 +105,82 @@
     <th>Speaker</th>
     <th>Method</th>
     <th>Text to Speech</th>
+    <th>Mean Opinion Score (MOS)</th>
   </tr>
   <tr>
     <td><audio controls="controls"><source type="audio/wav" src="misc/references/121_121726_000004_000003.wav"></source></audio></td>
     <td>121726</td>
     <td>with no adaptor (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_speakers/121_121726_000004_000003.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor/121_121726_000004_000003.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor (clean-360)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_trainClean360/121_121726_000004_000003.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor and rf version 1 (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_recitedflow_v1/121_121726_000004_000003.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor and rf version 2 (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_recitedflow_v1/121_121726_000004_000003.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
 </table>
 
@@ -146,36 +192,82 @@
     <th>Speaker</th>
     <th>Method</th>
     <th>Text to Speech</th>
+    <th>Mean Opinion Score (MOS)</th>
   </tr>
   <tr>
     <td><audio controls="controls"><source type="audio/wav" src="misc/references/121_121726_000005_000001.wav"></source></audio></td>
     <td>121726</td>
     <td>with no adaptor (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_speakers/121_121726_000005_000001.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor/121_121726_000005_000001.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor (clean-360)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_trainClean360/121_121726_000005_000001.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor and rf version 1 (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_recitedflow_v1/121_121726_000005_000001.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor and rf version 2 (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_recitedflow_v1/121_121726_000005_000001.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
 </table>
 
@@ -187,36 +279,82 @@
     <th>Speaker</th>
     <th>Method</th>
     <th>Text to Speech</th>
+    <th>Mean Opinion Score (MOS)</th>
   </tr>
   <tr>
     <td><audio controls="controls"><source type="audio/wav" src="misc/references/121_121726_000007_000003.wav"></source></audio></td>
     <td>121726</td>
     <td>with no adaptor (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_speakers/121_121726_000007_000003.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor/121_121726_000007_000003.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor (clean-360)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_trainClean360/121_121726_000007_000003.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor and rf version 1 (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_recitedflow_v1/121_121726_000007_000003.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor and rf version 2 (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_recitedflow_v1/121_121726_000007_000003.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
 </table>
 
@@ -228,36 +366,82 @@
     <th>Speaker</th>
     <th>Method</th>
     <th>Text to Speech</th>
+    <th>Mean Opinion Score (MOS)</th>
   </tr>
   <tr>
     <td><audio controls="controls"><source type="audio/wav" src="misc/references/121_121726_000008_000002.wav"></source></audio></td>
     <td>121726</td>
     <td>with no adaptor (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_speakers/121_121726_000008_000002.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor/121_121726_000008_000002.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor (clean-360)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_trainClean360/121_121726_000008_000002.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor and rf version 1 (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_recitedflow_v1/121_121726_000008_000002.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
   <tr>
     <td></td>
     <td></td>
     <td>with mel-style adaptor and rf version 2 (clean-100)</td>
     <td><audio controls="controls"><source type="audio/wav" src="misc/tts_ref_no_spk_mel_style_adaptor_recitedflow_v1/121_121726_000008_000002.wav"></source></audio></td>
+    <td>
+     <select id="MOS select">
+           <option value="1">1 - Bad</option>
+           <option value="2">2 - Poor</option>
+           <option value="3">3 - Fair</option>
+           <option value="4">4 - Good</option>
+           <option value="5">5 - Excellent</option>
+      </select>
+   </td>  
   </tr>
 </table>
 

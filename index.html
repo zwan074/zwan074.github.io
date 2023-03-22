@@ -16,26 +16,32 @@
 <h4>Mean Opinion Score (MOS): is a measure used in the domain of Quality of Experience and telecommunications engineering, 
 representing overall quality of the generate speech. (How close to the Reference Voice for the generated speech? Is the generated speech read clearly for the input text )</h4> 
  
- 
+
+ <h2>JavaScript Geolocation</h2>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
 <p id="demo"></p>
 
 <script>
+const x = document.getElementById("demo");
 
- 
- 
- 
-document.getElementById("demo").innerHTML = 
+function getLocation() {
+  try {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } catch {
+    x.innerHTML = err;
+  }
+}
 
-"<table style="width:100%">
-  <tr>
-    <th>Reference Voice</th>
-    <th>Speaker</th>
-    <th>Method</th>
-    <th>Text to Speech</th>
-    <th>Mean Opinion Score (MOS)</th>
-  </tr>" ;
- 
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
 </script>
+ 
  
  
  

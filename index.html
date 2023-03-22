@@ -28,18 +28,15 @@ representing overall quality of the generate speech. (How close to the Reference
 <script>
 const x = document.getElementById("demo");
 
-function getLocation() {
-  try {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } catch {
-    x.innerHTML = err;
-  }
-}
+x.innerHTML ="<table style="width:100%">
+  <tr>
+    <th>Reference Voice</th>
+    <th>Speaker</th>
+    <th>Method</th>
+    <th>Text to Speech</th>
+    <th>Mean Opinion Score (MOS)</th>
+  </tr>";
 
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
-}
 </script>
  
  

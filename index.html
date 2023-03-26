@@ -17,13 +17,6 @@ representing overall quality of the generate speech. (How close to the Reference
 
 <script>
 const x = document.getElementById("demo")
-const methods = [   "with no adaptor (clean-100),tts_ref_no_speakers",
-                    "with mel-style adaptor (clean-100),tts_ref_no_spk_mel_style_adaptor",
-                    "with mel-style adaptor (clean-360),tts_ref_no_spk_mel_style_adaptor_trainClean360",
-                    "with mel-style adaptor on dm (clean-100),tts_ref_mel_style_adaptor_on_dm",
-                    "with mel-style adaptor on dm and encoder (clean-100),tts_ref_mel_style_adaptor_on_dm_encoder",
-                    "with mel-style adaptor on dm and encoder (clean-100,emb=256),tts_ref_mel_style_adaptor_on_dm_encoder_emb_256"
-                ] 
 
 const ref_voice = [ "121_121726_000000_000000,121726",
                     "121_121726_000004_000003,121726",
@@ -48,7 +41,13 @@ const ref_voice = [ "121_121726_000000_000000,121726",
                     
                 ]
 
-
+const methods = [   "with no adaptor (clean-100),tts_ref_no_speakers",
+                    "with mel-style adaptor (clean-100),tts_ref_no_spk_mel_style_adaptor",
+                    "with mel-style adaptor (clean-360),tts_ref_no_spk_mel_style_adaptor_trainClean360",
+                    "with mel-style adaptor on dm (clean-100),tts_ref_mel_style_adaptor_on_dm",
+                    "with mel-style adaptor on dm and encoder (clean-100),tts_ref_mel_style_adaptor_on_dm_encoder",
+                    "with mel-style adaptor on dm and encoder (clean-100,emb=256),tts_ref_mel_style_adaptor_on_dm_encoder_emb_256"
+                ] 
 function table(ref_voice, methods) {
    
     text = ""

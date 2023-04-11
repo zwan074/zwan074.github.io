@@ -25,71 +25,93 @@ representing overall quality of the generate speech. (How close to the Reference
 <script>
 const x = document.getElementById("demo")
 
-const ref_voice = [ "121_121726_000000_000000,121726",
+let ref_voice1 = [ "121_121726_000000_000000,121726",
                     "121_121726_000004_000003,121726",
                     "121_121726_000005_000001,121726",
                     "121_121726_000007_000003,121726",
-                    "121_121726_000008_000002,121726",
+                    "121_121726_000008_000002,121726"   
+                ]
+
+let ref_voice2 = [ 
                     "1221_135766_000015_000000,135766",
                     "1221_135766_000025_000001,135766",
                     "1221_135766_000026_000000,135766",
                     "1221_135766_000026_000005,135766",
-                    "1221_135766_000027_000002,135766",
+                    "1221_135766_000027_000002,135766"
+                ]
+
+let ref_voice3 = [ 
                     "6930_75918_000000_000001,75918",
                     "6930_75918_000001_000000,75918",
                     "6930_75918_000004_000000,75918",
                     "6930_75918_000017_000000,75918",
-                    "6930_75918_000050_000001,75918",
+                    "6930_75918_000050_000001,75918"
+                ]
+
+let ref_voice4 = [ 
                     "8230_279154_000001_000001,279154",
                     "8230_279154_000002_000000,279154",
                     "8230_279154_000004_000003,279154",
                     "8230_279154_000004_000004,279154",
-                    "8230_279154_000008_000001,279154"
-                    
+                    "8230_279154_000008_000001,279154"  
                 ]
 
 const methods = [  
 		    "with mel-style adaptor on dm semi(clean-100 emb=256),tts_ref_mel_style_adaptor_on_dm_emb_256_semi",
 		    "with mel-style adaptor on dm semi style loss*(clean-100 emb=256),tts_ref_mel_style_adaptor_on_dm_encoder_emb_256_semi_styleloss"
                 ] 
+                
+survey_id = 0 
+
 function table(ref_voice, methods) {
    
     text = ""
-    survey_id = 0 
+    
     for (const r in ref_voice)  {
         
         ref = ref_voice[r].split(',')[0]
         speaker = ref_voice[r].split(',')[1]
-        i = 0
         
-        for (const m in methods){
-            method_name = methods[m].split(',')[0]
-            method = methods[m].split(',')[1]
-            if (i!= 0) {
-                text += "<tr><td></td><td></td>"
-            }
-            else{
-                text += "<table style=\'width:100%\'><tr><th>Reference Voice</th><th>Speaker</th> \
-                <th>Method</th><th>Text to Speech</th><th>Mean Opinion Score (MOS)</th>  </tr>"
-                text += " <tr><td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc/references/" + ref + ".wav\"></source></audio></td>"
-                text += "<td>" + speaker + "</td>"
-            }
-            text += "\
-            <td>" + method_name + " # " + survey_id  + "</td>\
-            <td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc/" + method + "/" + ref + ".wav\"></source></audio></td>\
-            <td>\
-                <select id=\"MOS" + survey_id  + "\">\
-                    <option value=\"1\">1 - Bad</option>\
-                    <option value=\"2\">2 - Poor</option>\
-                    <option value=\"3\">3 - Fair</option>\
-                    <option value=\"4\">4 - Good</option>\
-                    <option value=\"5\">5 - Excellent</option>\
-                </select>\
-            </td>\
-            </tr>\
-            "
-           survey_id += 1 
-           i += 1
+        
+        for (const r_ref in ref_voice)  {
+          i = 0
+          if (r_ref == r){
+            continue
+          }
+          for (const m in methods){
+              method_name = methods[m].split(',')[0]
+              method = methods[m].split(',')[1]
+
+              ref2 = ref_voice[r_ref].split(',')[0]
+              console.log(ref + "-" + ref2)
+              console.log(speaker)
+              if (i== 0) {
+                  text += "<table style=\'width:100%\'><tr><th>Ground Truth Voice</th><th>Speaker</th><th>Reference Voice</th> \
+                  <th>Method</th><th>Text to Speech</th><th>Mean Opinion Score (MOS)</th>  </tr>"
+                  text += " <tr><td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc/references/" + ref + ".wav\"></source></audio></td>"
+                  text += "<td>" + speaker + "</td><td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc/" + method + "/" + ref2 + ".wav\"></source></audio></td>"
+                  
+              }
+              else{
+                  text += "<tr><td></td><td></td><td></td>"
+              }
+              text += "\
+              <td>" + method_name + " # " + survey_id  + "</td>\
+              <td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc2/" + method + "/" + ref + "-" + ref2 + ".wav\"></source></audio></td>\
+              <td>\
+                  <select id=\"MOS" + survey_id  + "\">\
+                      <option value=\"1\">1 - Bad</option>\
+                      <option value=\"2\">2 - Poor</option>\
+                      <option value=\"3\">3 - Fair</option>\
+                      <option value=\"4\">4 - Good</option>\
+                      <option value=\"5\">5 - Excellent</option>\
+                  </select>\
+              </td>\
+              </tr>\
+              "
+              survey_id += 1 
+              i += 1
+          }
         }
         text += "</table><hr style=\"opacity: 0.25\">"
         
@@ -99,8 +121,10 @@ function table(ref_voice, methods) {
     return text
 }
 
-x.innerHTML = table(ref_voice, methods)
-
+x.innerHTML = table(ref_voice1, methods )
+x.innerHTML += table(ref_voice2, methods )
+x.innerHTML += table(ref_voice3, methods )
+x.innerHTML += table(ref_voice4, methods )
 
 const result = document.getElementById("resultcontainer")
 
@@ -127,3 +151,4 @@ surveyForm.addEventListener("submit", (e) => {
 
 </body>
 </html>
+

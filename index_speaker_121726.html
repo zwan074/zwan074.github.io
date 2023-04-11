@@ -57,7 +57,7 @@ let ref_voice4 = [
                 ]
 
 const methods = [  
-		    "with mel-style adaptor on dm and encoder semi*(clean-100 emb=256),tts_ref_mel_style_adaptor_on_dm_encoder_emb_256_semi",
+"with mel-style adaptor on dm and encoder semi*(clean-100 emb=256),tts_ref_mel_style_adaptor_on_dm_encoder_emb_256_semi",
 		    "with mel-style adaptor on dm semi style loss*(clean-100 emb=256),tts_ref_mel_style_adaptor_on_dm_encoder_emb_256_decoder_64_semi_styleloss"
                 ] 
                 
@@ -71,29 +71,34 @@ function table(ref_voice, methods) {
         
         ref = ref_voice[r].split(',')[0]
         speaker = ref_voice[r].split(',')[1]
-        
-        
+        text += "<table style=\'width:100%\'><tr><th>Ground Truth Voice</th><th>Speaker</th><th>Reference Voice</th> \
+                  <th>Method</th><th>Text to Speech</th><th>Mean Opinion Score (MOS)</th>  </tr>"
+
+        i = 0
         for (const r_ref in ref_voice)  {
-          i = 0
+          j = 0
           if (r_ref == r){
             continue
           }
           for (const m in methods){
+              
               method_name = methods[m].split(',')[0]
               method = methods[m].split(',')[1]
 
               ref2 = ref_voice[r_ref].split(',')[0]
-              console.log(ref + "-" + ref2)
-              console.log(speaker)
-              if (i== 0) {
-                  text += "<table style=\'width:100%\'><tr><th>Ground Truth Voice</th><th>Speaker</th><th>Reference Voice</th> \
-                  <th>Method</th><th>Text to Speech</th><th>Mean Opinion Score (MOS)</th>  </tr>"
-                  text += " <tr><td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc/references/" + ref + ".wav\"></source></audio></td>"
-                  text += "<td>" + speaker + "</td><td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc/references/" + ref2 + ".wav\"></source></audio></td>"
+              //console.log(i)
+              //console.log(m)
+              if (i == 0 && j == 0) {
                   
+                text += "<tr><td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc/references/" + ref + ".wav\"></source></audio></td>"
+                text += "<td>" + speaker + "</td><td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc/references/" + ref2 + ".wav\"></source></audio></td>"
+                
+              }
+              else if (i != 0 && j == 0){
+                text += "<tr><td></td><td></td><td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc/references/" + ref2 + ".wav\"></source></audio></td>"
               }
               else{
-                  text += "<tr><td></td><td></td><td></td>"
+                text += "<tr><td></td><td></td><td></td>"
               }
               text += "\
               <td>" + method_name + " # " + survey_id  + "</td>\
@@ -111,6 +116,7 @@ function table(ref_voice, methods) {
               "
               survey_id += 1 
               i += 1
+              j += 1
           }
         }
         text += "</table><hr style=\"opacity: 0.25\">"
@@ -122,7 +128,7 @@ function table(ref_voice, methods) {
 }
 
 x.innerHTML = table(ref_voice1, methods )
-	
+
 const result = document.getElementById("resultcontainer")
 
 let surveyForm = document.getElementById("surveyForm");

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Text to Speech with Arbitrary Voice</h2>
+ 
+<h4>This is a text-to-speech project. We try to generate a speech based on an arbitrary voice sample and an input text, that makes the generated speech sounds like the voice sample   </h3>
+<h4>Text for test : 'The Greeks used to imagine that it was a sign from the gods to foretell war or heavy rain.'</h4>
+<h4>Reference Voice: a voice sample</h4>
+<h4>Speaker: ID of the Speaker for the Reference Voice</h4> 
+<h4>Method: to generate speech based on different methods</h4> 
+<h4>Mean Opinion Score (MOS): is a measure used in the domain of Quality of Experience and telecommunications engineering, 
+representing overall quality of the generate speech. (How close to the Reference Voice for the generated speech? Is the generated speech read clearly for the input text )</h4> 
+ 
+ <hr> 
+<p id="demo"></p>
+
+  <form action="" id="surveyForm">
+    <h1>Send Results</h1>
+    <button type="submit">Submit</button>
+  </form>
+
+<p id="resultcontainer" >result</p>
+
+<script>
+const x = document.getElementById("demo")
+
+let ref_voice1 = [ "121_121726_000000_000000,121726",
+                    "121_121726_000004_000003,121726",
+                    "121_121726_000005_000001,121726",
+                    "121_121726_000007_000003,121726",
+                    "121_121726_000008_000002,121726"   
+                ]
+
+let ref_voice2 = [ 
+                    "1221_135766_000015_000000,135766",
+                    "1221_135766_000025_000001,135766",
+                    "1221_135766_000026_000000,135766",
+                    "1221_135766_000026_000005,135766",
+                    "1221_135766_000027_000002,135766"
+                ]
+
+let ref_voice3 = [ 
+                    "6930_75918_000000_000001,75918",
+                    "6930_75918_000001_000000,75918",
+                    "6930_75918_000004_000000,75918",
+                    "6930_75918_000017_000000,75918",
+                    "6930_75918_000050_000001,75918"
+                ]
+
+let ref_voice4 = [ 
+                    "8230_279154_000001_000001,279154",
+                    "8230_279154_000002_000000,279154",
+                    "8230_279154_000004_000003,279154",
+                    "8230_279154_000004_000004,279154",
+                    "8230_279154_000008_000001,279154"  
+                ]
+
+const methods = [  
+"with mel-style adaptor on dm and encoder semi*(clean-100 emb=256),tts_ref_mel_style_adaptor_on_dm_encoder_emb_256_semi",
+		    "with mel-style adaptor on dm semi style loss*(clean-100 emb=256),tts_ref_mel_style_adaptor_on_dm_encoder_emb_256_decoder_64_semi_styleloss"
+                ] 
+                
+survey_id = 0 
+
+function table(ref_voice, methods) {
+   
+    text = ""
+    
+    for (const r in ref_voice)  {
+        
+        ref = ref_voice[r].split(',')[0]
+        speaker = ref_voice[r].split(',')[1]
+        text += "<table style=\'width:100%\'><tr><th>Ground Truth Voice</th><th>Speaker</th><th>Reference Voice</th> \
+                  <th>Method</th><th>Text to Speech</th><th>Mean Opinion Score (MOS)</th>  </tr>"
+
+        i = 0
+        for (const r_ref in ref_voice)  {
+          j = 0
+          if (r_ref == r){
+            continue
+          }
+          for (const m in methods){
+              
+              method_name = methods[m].split(',')[0]
+              method = methods[m].split(',')[1]
+
+              ref2 = ref_voice[r_ref].split(',')[0]
+              //console.log(i)
+              //console.log(m)
+              if (i == 0 && j == 0) {
+                  
+                text += "<tr><td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc/references/" + ref + ".wav\"></source></audio></td>"
+                text += "<td>" + speaker + "</td><td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc/references/" + ref2 + ".wav\"></source></audio></td>"
+                
+              }
+              else if (i != 0 && j == 0){
+                text += "<tr><td></td><td></td><td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc/references/" + ref2 + ".wav\"></source></audio></td>"
+              }
+              else{
+                text += "<tr><td></td><td></td><td></td>"
+              }
+              text += "\
+              <td>" + method_name + " # " + survey_id  + "</td>\
+              <td><audio controls=\"controls\"><source type=\"audio/wav\" src=\"misc2/" + method + "/" + ref + "-" + ref2 + ".wav\"></source></audio></td>\
+              <td>\
+                  <select id=\"MOS" + survey_id  + "\">\
+                      <option value=\"1\">1 - Bad</option>\
+                      <option value=\"2\">2 - Poor</option>\
+                      <option value=\"3\">3 - Fair</option>\
+                      <option value=\"4\">4 - Good</option>\
+                      <option value=\"5\">5 - Excellent</option>\
+                  </select>\
+              </td>\
+              </tr>\
+              "
+              survey_id += 1 
+              i += 1
+              j += 1
+          }
+        }
+        text += "</table><hr style=\"opacity: 0.25\">"
+        
+    } 
+    
+
+    return text
+}
+
+x.innerHTML = table(ref_voice2, methods )
+
+const result = document.getElementById("resultcontainer")
+
+let surveyForm = document.getElementById("surveyForm");
+
+surveyForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let mos= [] 
+  for (let idx = 0; idx  < survey_id ;idx ++) {
+    mos.push (  document.getElementById("MOS" + idx ).value )
+  } 
+	
+  text = ""
+  text +=  "<form action=\"mailto:zwan076@gmail.com\" method=\"post\" enctype=\"text/plain\">"
+  text +=  "<input type=\"text\" name=\"results\" value = \"" + mos  +"\">"  
+  text += "<input type=\"submit\" value=\"Send\"></form>" 
+  result.innerHTML  = text
+  }
+);
+
+
+</script>
+
+</body>
+</html>

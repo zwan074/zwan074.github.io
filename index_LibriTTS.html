@@ -2,17 +2,8 @@
 <html>
 <body>
 
-<h2>Text to Speech for Voice Cloning</h2>
+<h2>LibriTTS Speech Samples</h2>
  
-<h4>This is a text-to-speech project for voice cloning. Our goal is to generate speech that closely resembles an arbitrary voice sample when provided with an input text, 
-ensuring that the generated speech captures the characteristics of the voice sample.   </h3>
-<h4>Text : any text i.e., 'The Greeks used to imagine that it was a sign from the gods to foretell war or heavy rain.'</h4>
-<h4>Reference Voice: a voice sample</h4>
-<h4>Speaker: ID of a Speaker for the Reference Voice</h4> 
-<h4>Method: to generate speech based on different methods</h4> 
-<h4>Mean Opinion Score (MOS): is a measure used in the domain of Quality of Experience and telecommunications engineering, 
-representing overall quality of the generate speech. (How close to the Reference Voice for the generated speech? 
-	How's the naturalness and robustness of the generated speech? )</h4> 
  
  <hr> 
 <p id="demo"></p>
@@ -27,42 +18,42 @@ representing overall quality of the generate speech. (How close to the Reference
 <script>
 const x = document.getElementById("demo")
 
-let ref_voice4 = [ "p225_001,p225",
-                    "p225_002,p225",
-                    "p225_003,p225",
-                    "p225_004,p225",
-                    "p225_005,p225"   
-                ]
-
-let ref_voice3 = [ 
-                    "p234_018,p234",
-                    "p234_019,p234",
-                    "p234_020,p234",
-                    "p234_021,p234",
-                    "p234_022,p234"
+let ref_voice1 = [ "121_121726_000000_000000,121726",
+                    "121_121726_000004_000003,121726",
+                    "121_121726_000005_000001,121726",
+                    "121_121726_000007_000003,121726",
+                    "121_121726_000008_000002,121726"   
                 ]
 
 let ref_voice2 = [ 
-                    "p326_371,p326",
-                    "p326_372,p326",
-                    "p326_373,p326",
-                    "p326_375,p326",
-                    "p326_376,p326"
+                    "1221_135766_000015_000000,135766",
+                    "1221_135766_000025_000001,135766",
+                    "1221_135766_000026_000000,135766",
+                    "1221_135766_000026_000005,135766",
+                    "1221_135766_000027_000002,135766"
                 ]
 
-let ref_voice1 = [ 
-                    "p347_020,p347",
-                    "p347_021,p347",
-                    "p347_022,p347",
-                    "p347_023,p347",
-                    "p347_024,p347"  
+let ref_voice3 = [ 
+                    "6930_75918_000000_000001,75918",
+                    "6930_75918_000001_000000,75918",
+                    "6930_75918_000004_000000,75918",
+                    "6930_75918_000017_000000,75918",
+                    "6930_75918_000050_000001,75918"
+                ]
+
+let ref_voice4 = [ 
+                    "8230_279154_000001_000001,279154",
+                    "8230_279154_000002_000000,279154",
+                    "8230_279154_000004_000003,279154",
+                    "8230_279154_000004_000004,279154",
+                    "8230_279154_000008_000001,279154"  
                 ]
 
 const methods = [  
-"your-TTS,Your-TTS-VCTK",
-"MetaStyleSpeech,metastylespeech_VCTK",
-"StyleSpeech,stylespeech_VCTK",
-"Ours,tts_ref_prior_decoder_ms_VCTK",
+"your-TTS,Your-TTS",
+"MetaStyleSpeech,metastylespeech",
+"StyleSpeech,stylespeech",
+"Ours,tts_ref_prior_decoder_ms",
                 ] 
                 
 survey_id = 0 
